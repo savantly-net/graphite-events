@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="LoginApp">
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" />
+	<link rel="stylesheet" href="libs/angular-material/angular-material.min.css" />
+	<link rel="stylesheet" href="libs/angular-material-icons/angular-material-icons.css" />
+</head>
+<body>
+	<div class="content" ng-controller="LoginController" layout="column">
+		<md-input-container>
+			<label>Username</label>
+			<md-input type="text" ng-model="data.username"></md-input>
+		</md-input-container>
+		<md-input-container>
+			<label>Password</label>
+			<md-input type="text" ng-model="data.password" />
+		</md-input-container>
+		<md-input-container>
+			<md-button id="login" value="Login" class="md-primary" ng-click="form.submit()" /> 
+		</md-input-container>
+		<form name="form" ng-hide="true" action="/login" method="POST">
+			<md-input type="text" name="username" ng-model="data.username" />
+			<md-input type="text" name="password" ng-model="data.password" />
+			<!-- <input type="hidden"
+				th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> -->
+		</form>
+	</div>
+	
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
+	
+	<script type="text/javascript" src="libs/angular-ui-utils/index.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-scroll/dist/ui-scroll.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-scrollpoint/dist/scrollpoint.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-event/dist/event.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-mask/dist/mask.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-validate/dist/validate.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-indeterminate/dist/indeterminate.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-uploader/dist/uploader.js"></script>
+	
+	<script type="text/javascript" src="libs/angular-material/angular-material.min.js"></script>
+	<script type="text/javascript" src="libs/angular-material-icons/angular-material-icons.min.js"></script>
+	
+	<script>
+	var app = angular.module('LoginApp', ['ngMaterial']);
+	
+	app.controller('LoginController', ['$scope',
+		function($scope) {
+		}
+	]);
+	</script>
+</body>
+</html>

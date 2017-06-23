@@ -1,0 +1,27 @@
+{
+  "name": "graphite-events",
+  "authors": [
+    "Jeremy <jeremy@savantly.net>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/resources/public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material-datetimepicker": "^1.5.1",
+    "angular-material-icons": "^0.7.1",
+    "angular-ui-utils": "^3.0.0",
+    "angular-ui-router": "^1.0.4",
+    "angular-material": "^1.1.4",
+    "angular": "^1.6.4"
+  }
+}

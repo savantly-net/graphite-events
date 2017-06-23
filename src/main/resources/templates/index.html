@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${title}">Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" />
+	<link rel="stylesheet" href="libs/angular-material/angular-material.min.css" />
+	<link rel="stylesheet" href="libs/angular-material-icons/angular-material-icons.css" />
+	<link rel="stylesheet" href="libs/angular-material-datetimepicker/dist/material-datetimepicker.min.css"/>
+	
+	<!-- Modules CSS Files -->
+	<link rel="stylesheet" data-th-each="resource : ${moduleCSSResources}" th:href="${resource}"></link>
+	
+	<!-- HTML5 Shim -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body class="ng-cloak" ng-controller="CoreController">
+	<div class="container">
+		<div class="navbar" ng-hide="true">
+			<div class="navbar-inner">
+				<a class="brand" href="@{/}">Perception</a>
+				<ul class="nav">
+					<li><a th:href="@{/}" href="home.html"> Home </a></li>
+					<li><a th:href="@{/logout}" href="logout"> Logout </a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="content" layout="column" layout-padding="layout-padding">
+			<div id="container" flex="flex" data-ui-view="" style="height: 100vh"></div>
+		</div>
+
+	</div>
+	
+	<!--Embedding The User Object-->
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+	 
+	    var securityString = /*[[${security}]]*/;
+	    var security = JSON.parse(securityString);
+	    window.debug = /*[[${debug}]]*/;
+	 
+	/*]]>*/
+	</script>
+	
+	<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.js"></script> -->
+	
+ 	<script src="libs/angular/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
+	
+	<script type="text/javascript" src="libs/angular-ui-utils/index.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-scroll/dist/ui-scroll.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-scrollpoint/dist/scrollpoint.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-event/dist/event.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-mask/dist/mask.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-validate/dist/validate.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-indeterminate/dist/indeterminate.js"></script>
+	<script type="text/javascript" src="libs/angular-ui-uploader/dist/uploader.js"></script>
+	
+	<!-- 
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+	 -->
+	
+	<script type="text/javascript" src="libs/angular-material/angular-material.min.js"></script>
+	<script type="text/javascript" src="libs/angular-material-icons/angular-material-icons.min.js"></script>
+	
+	<script type="text/javascript" src="libs/moment/moment.js"></script>
+	<script type="text/javascript" src="libs/angular-material-datetimepicker/dist/angular-material-datetimepicker.min.js"></script>
+	
+	<script src="config.js"></script>
+	<script src="application.js"></script>
+	
+	<!-- Modules JavaScript -->
+	<script data-th-each="resource : ${moduleResources}" th:src="${resource}"></script>
+</body>
+</html>

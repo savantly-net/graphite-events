@@ -1,0 +1,34 @@
+<section layout="column" layout-align="center" data-ng-controller="HomeController">
+	<h3>Update Graphite Event</h3>
+	<div layout="row">
+		<md-input-container>
+	        <label>Event Type</label>
+	        <md-select ng-model="graphiteEvent.name">
+	        	<md-option ng-repeat="name in eventNames" ng-value="name">{{name}}</md-option>
+	        </md-select>
+	    </md-input-container>
+	    <md-input-container flex-gt-md="30">
+	        <label>Event Start Date/Time</label>
+	        <input mdc-datetime-picker date="true" time="true" type="text" id="time" short-time="true"
+	               min-date="minDate"
+	               format="YYYY-MM-DD hh:mm a"
+	               ng-model="rawDateTime">
+	    </md-input-container>
+		<md-input-container>
+			<label>Duration in minutes</label>
+        	<input ng-model="graphiteEvent.durationInMinutes" type="number">
+		</md-input-container>
+	</div>
+	
+    <md-slider-container> 
+		<span>Impact</span> 
+		<md-slider flex min="0" max="1" step="0.1" ng-model="graphiteEvent.value" aria-label="perception value" id="perception-value-slider"> </md-slider> 
+		<md-input-container>
+			<input flex type="number" ng-model="graphiteEvent.value" aria-label="perception value" aria-controls="perception-value-slider">
+		</md-input-container>
+	</md-slider-container>
+	
+	<md-input-container>
+		<md-button ng-click="sendGraphiteEvent()">Submit</md-button>
+	</md-input-container>
+</section>
