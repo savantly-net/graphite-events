@@ -28,7 +28,7 @@ public class MetricService {
 
 	@PostConstruct
 	public void post() throws UnknownHostException, SocketException{
-		graphiteClient = GraphiteClientFactory.defaultGraphiteClient(graphiteConfig.getHost(), graphiteConfig.getPort());
+		graphiteClient = GraphiteClientFactory.defaultGraphiteClient(graphiteConfig.getHost(), graphiteConfig.getCarbonPort());
 	}
 
 	/***

@@ -31,4 +31,10 @@
 	<md-input-container>
 		<md-button ng-click="sendGraphiteEvent()">Submit</md-button>
 	</md-input-container>
+	
+	<div ng-if="graphiteConfig.showRecentImage" layout="column" layout-align="center center">
+		<hr/>
+		<h3>Recent Events</h3>
+		<img ng-src="{{getRecentImageUrl()}}"/>
+	</div>
 </section>

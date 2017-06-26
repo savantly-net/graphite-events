@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.savantly.monitoring.graphite.events.web.config.GraphiteConfig;
 import net.savantly.monitoring.graphite.events.web.security.ClientSecurityContext;
 
 @Controller
@@ -41,6 +42,8 @@ public class HomeController {
     ObjectMapper objectMapper;
     @Autowired
     private Environment env;
+    @Autowired
+    private GraphiteConfig graphiteConfig;
 
     @RequestMapping({"/"})
     public String index(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -52,6 +55,8 @@ public class HomeController {
                 throw new UnsupportedOperationException();
             }
         });
+        
+        model.addAttribute("graphiteConfig", graphiteConfig);
         
         if(env.getProperty("debug", boolean.class, false)){
             model.addAttribute("debug", true);

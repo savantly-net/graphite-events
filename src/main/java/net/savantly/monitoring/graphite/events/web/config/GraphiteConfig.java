@@ -8,7 +8,10 @@ import org.springframework.context.annotation.Configuration;
 public class GraphiteConfig {
 
 	private String host;
-	private int port;
+	private int carbonPort;
+	private int webPort;
+	private String prefix;
+	private boolean showRecentImage;
 	
 	public String getHost() {
 		return host;
@@ -16,11 +19,29 @@ public class GraphiteConfig {
 	public void setHost(String host) {
 		this.host = host;
 	}
-	public int getPort() {
-		return port;
+	public int getCarbonPort() {
+		return carbonPort;
 	}
-	public void setPort(int port) {
-		this.port = port;
+	public void setCarbonPort(int port) {
+		this.carbonPort = port;
+	}
+	public int getWebPort() {
+		return webPort;
+	}
+	public void setWebPort(int webPort) {
+		this.webPort = webPort;
+	}
+	public String getPrefix() {
+		return prefix;
+	}
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+	public boolean isShowRecentImage() {
+		return showRecentImage;
+	}
+	public void setShowRecentImage(boolean showRecentImage) {
+		this.showRecentImage = showRecentImage;
 	}
 	
 }

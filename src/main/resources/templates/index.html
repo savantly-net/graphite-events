@@ -38,6 +38,7 @@
 	<script th:inline="javascript">
 	/*<![CDATA[*/
 	 
+	    var graphiteConfig = /*[[${graphiteConfig}]]*/;
 	    var securityString = /*[[${security}]]*/;
 	    var security = JSON.parse(securityString);
 	    window.debug = /*[[${debug}]]*/;
