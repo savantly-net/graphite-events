@@ -8,7 +8,8 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$mdDial
 		$scope.graphiteConfig = graphiteConfig;
 		
 		$scope.getRecentImageUrl = function(){
-			return 'http://' + graphiteConfig.host + ':' + graphiteConfig.webPort + '/render/?width=800&height=600&target=' + graphiteConfig.prefix + $scope.targetParam;
+			return 'http://' + graphiteConfig.host + ':' + graphiteConfig.webPort + 
+				'/render/?width=800&height=400&from=-24h&target=' + $scope.targetParam;
 		}
 		
 		$http.get('rest/health/event/names').then(function(response){
@@ -32,7 +33,7 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$mdDial
 				targetParam +='{' + targets[i].join(',') + '}';
 				if (i < targets.length - 1) targetParam += '.';
 			}
-			$scope.targetParam = targetParam;
+			$scope.targetParam = 'lineWidth(' + graphiteConfig.prefix + targetParam +',2)';
 		});
 	
 		$scope.sendGraphiteEvent = function(){
